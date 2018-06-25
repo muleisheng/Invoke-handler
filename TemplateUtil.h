@@ -1,9 +1,26 @@
 #ifndef _TEMPLATEUTIL_H_
 #define _TEMPLATEUTIL_H_
 
-#include "QpFishClientDefine.h"
 #include <vector>
+#include <string>
 using namespace std;
+
+
+#define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+TypeName(const TypeName&);				\
+void operator=(const TypeName&)
+
+#define DISALLOW_IMPLICIT_CONSTRUCTORS(TypeName) \
+  TypeName();                                    \
+  DISALLOW_COPY_AND_ASSIGN(TypeName)
+
+#ifdef WIN32
+#define STRING2(x) #x  
+#define STRING(x) STRING2(x) 
+#define QP_DEPRECATED(msg) __declspec(deprecated(msg))
+#define QP_COMPILE_MSG1(msg) __pragma(message(msg))
+#define QP_COMPILE_MSG(msg) QP_COMPILE_MSG1(__FILE__ "(" STRING(__LINE__) "): "msg)
+#endif
 
 enum TU_RC{
 	TU_RC_OK,
