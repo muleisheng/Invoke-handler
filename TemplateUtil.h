@@ -5,9 +5,8 @@
 #include <string>
 using namespace std;
 
-
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
-TypeName(const TypeName&);				\
+TypeName(const TypeName&); \
 void operator=(const TypeName&)
 
 #define DISALLOW_IMPLICIT_CONSTRUCTORS(TypeName) \
